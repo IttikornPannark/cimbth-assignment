@@ -1,13 +1,10 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Main {
     public static void main(String[] args) {
         // System.out.println(question1(new int[] { 7, 6, 4, 3, 1 }));
-        System.out.println(question2("7.5.2.4", "7.5.3"));
-        // System.out.println(question3());
+        // System.out.println(question2("7.5.2.4", "7.5.3"));
+        System.out.println(question3(10));
     }
 
     private static int question1(int[] nums) {
@@ -34,7 +31,7 @@ class Main {
         } else {
             maxLength = v2.length;
         }
-        for(int i = 0; i < maxLength; i++) {
+        for (int i = 0; i < maxLength; i++) {
             int num1 = 0;
             int num2 = 0;
             if (i < v1.length) {
@@ -47,17 +44,28 @@ class Main {
             } else {
                 num2 = 0;
             }
+
             if (num1 < num2) {
                 return -1;
-            } 
-            if (num1 > num2) {
+            } else if (num1 > num2) {
                 return 1;
             }
         }
         return 0;
     }
 
-    private static int question3() {
-        return 0;
+    private static int question3(int n) {
+        if (n == 1)
+            return 1;
+        if (n == 2)
+            return 2;
+
+        int[] dp = new int[100];
+
+        if (dp[n] == 0) {
+            dp[n] = question3(n - 1) + question3(n - 2);
+        }
+        return dp[n];
     }
+
 }
