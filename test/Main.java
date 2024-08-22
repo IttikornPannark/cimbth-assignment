@@ -2,8 +2,8 @@ package test;
 
 class Main {
     public static void main(String[] args) {
-        // System.out.println(question1(new int[] { 7, 6, 4, 3, 1 }));
-        // System.out.println(question2("7.5.2.4", "7.5.3"));
+        System.out.println(question1(new int[] { 7, 6, 4, 3, 1 }));
+        System.out.println(question2("7.5.2.4", "7.5.3"));
         System.out.println(question3(10));
     }
 
@@ -67,5 +67,11 @@ class Main {
         }
         return dp[n];
     }
+
+    /*
+     * Question 4
+     * คำถามที่ 3 ยากที่สุด เพราะเป็นเรื่องที่ไม่ถนัด ต้องใช้ความรู้ dynamic programing หรือ recursion ซึ่งยากในการคิดภาพในหัวว่าทำงานยังไง
+     * ใช้วิธีการ resursion โดยการเรียก method ตัวเองซ้ำๆ จนหยุดที่ base case
+     */
 
 }
