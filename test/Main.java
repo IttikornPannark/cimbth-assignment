@@ -28,36 +28,33 @@ class Main {
     private static int question2(String version1, String version2) {
         String[] v1 = version1.split("\\.");
         String[] v2 = version2.split("\\.");
-        int minLength = 0;
-        int result = 0;
-        List<String> l1 = new ArrayList<>();
-        List<String> l2 = new ArrayList<>();
-        for (int i = 0; i < v1.length; i++) {
-            if (!v1[i].startsWith("0")) {
-                l1.add(v1[i]);
-            }
-        }
-        for (int j = 0; j < v2.length; j++) {
-            if (!v2[j].startsWith("0")) {
-                l2.add(v2[j]);
-
-            }
-        }
-        int i = 0;
-        if(l1.size() < l2.size()) {
-            minLength = l1.size();
+        int maxLength = 0;
+        if (v1.length > v2.length) {
+            maxLength = v1.length;
         } else {
-            minLength = l2.size();
+            maxLength = v2.length;
         }
-        while (i < minLength) {
-            if (Integer.parseInt(l1.get(i)) < Integer.parseInt(l2.get(i))) {
-                result = -1;
-            } else if (Integer.parseInt(l1.get(i)) > Integer.parseInt(l2.get(i))) {
-                result = 1;
+        for(int i = 0; i < maxLength; i++) {
+            int num1 = 0;
+            int num2 = 0;
+            if (i < v1.length) {
+                num1 = Integer.parseInt(v1[i]);
+            } else {
+                num1 = 0;
             }
-            i++;
+            if (i < v2.length) {
+                num2 = Integer.parseInt(v2[i]);
+            } else {
+                num2 = 0;
+            }
+            if (num1 < num2) {
+                return -1;
+            } 
+            if (num1 > num2) {
+                return 1;
+            }
         }
-        return result;
+        return 0;
     }
 
     private static int question3() {
